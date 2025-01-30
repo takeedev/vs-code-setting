@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+#echo 
+echo "start install extention"
+
 #gitlens
 code --force --install-extension eamodio.gitlens
 
