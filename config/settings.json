@@ -1,0 +1,353 @@
+{
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontLigatures": true,
+  "files.autoSave": "afterDelay",
+  "telemetry.telemetryLevel": "off",
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": false,
+  "vim.smartRelativeLine": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "s"
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "s"
+      ]
+    },
+    {
+      "before": [
+        "n"
+      ],
+      "after": [
+        "n",
+        "z",
+        "z",
+        "z",
+        "v"
+      ]
+    },
+    {
+      "before": [
+        "N"
+      ],
+      "after": [
+        "N",
+        "z",
+        "z",
+        "z",
+        "v"
+      ]
+    },
+    {
+      "before": [
+        "<c-d>"
+      ],
+      "after": [
+        "<c-d>",
+        "z",
+        "z"
+      ]
+    },
+    {
+      "before": [
+        "<c-u>"
+      ],
+      "after": [
+        "<c-u>",
+        "z",
+        "z"
+      ]
+    },
+    {
+      "before": [
+        "<c-h>"
+      ],
+      "after": [
+        "<c-w>",
+        "h"
+      ]
+    },
+    {
+      "before": [
+        "<c-j>"
+      ],
+      "after": [
+        "<c-w>",
+        "j"
+      ]
+    },
+    {
+      "before": [
+        "<c-k>"
+      ],
+      "after": [
+        "<c-w>",
+        "k"
+      ]
+    },
+    {
+      "before": [
+        "<c-l>"
+      ],
+      "after": [
+        "<c-w>",
+        "l"
+      ]
+    },
+    {
+      "before": [
+        "-"
+      ],
+      "after": [
+        "<c-w>",
+        "-"
+      ]
+    },
+    {
+      "before": [
+        "="
+      ],
+      "after": [
+        "<c-w>",
+        "+"
+      ]
+    },
+    {
+      "before": [
+        "_"
+      ],
+      "after": [
+        "<c-w>",
+        "<"
+      ]
+    },
+    {
+      "before": [
+        "+"
+      ],
+      "after": [
+        "<c-w>",
+        ">"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "a",
+        "c"
+      ],
+      "commands": [
+        "workbench.view.scm"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "a",
+        "d"
+      ],
+      "commands": [
+        "workbench.view.debug"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "a",
+        "c"
+      ],
+      "commands": [
+        "workbench.view.scm"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "a",
+        "d"
+      ],
+      "commands": [
+        "workbench.view.debug"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "a",
+        "g"
+      ],
+      "commands": [
+        "gradleDefaultProjectsView.focus"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "a",
+        "m"
+      ],
+      "commands": [
+        "mavenProjects.focus"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "a",
+        "p"
+      ],
+      "commands": [
+        "workbench.view.explorer"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "a",
+        "s"
+      ],
+      "commands": [
+        "outline.focus"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "a",
+        "t"
+      ],
+      "commands": [
+        "workbench.action.terminal.toggleTerminal"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "h"
+      ],
+      "commands": [
+        "workbench.action.closeSidebar",
+        "workbench.action.closePanel"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "r",
+        "e"
+      ],
+      "commands": [
+        "editor.action.refactor"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "r",
+        "r"
+      ],
+      "commands": [
+        "java.debug.runJavaFile"
+      ],
+      "when": "resourceExtname == .java"
+    },
+    {
+      "before": [
+        "<leader>",
+        "<leader>"
+      ],
+      "after": [
+        "<c-^>"
+      ]
+    },
+    {
+      "before": [
+        "<Tab>"
+      ],
+      "after": [
+        "g",
+        "t"
+      ]
+    },
+    {
+      "before": [
+        "<s-Tab>"
+      ],
+      "after": [
+        "g",
+        "T"
+      ]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-b>": false,
+    "<C-c>": false,
+    "<C-e>": false,
+    "<C-f>": false,
+    "<C-v>": false,
+    "<C-x>": false
+  },
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+  "workbench.colorTheme": "Kimbie Dark",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "java.compile.nullAnalysis.nonnull": [],
+  "java.compile.nullAnalysis.nullable": [],
+  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.minimap.autohide": true,
+  "editor.fontSize": 12,
+  "dbcode.connections": [
+    {
+      "connectionId": "jU9eYucTEGShPXG9ZCDTk",
+      "name": "Localhost",
+      "driver": "mssql",
+      "host": "localhost",
+      "port": 1444,
+      "ssl": false,
+      "driverOptions": {
+        "authType": "sql"
+      },
+      "username": "sa",
+      "password": "",
+      "savePassword": "secretStorage",
+      "database": "AddressDB",
+      "connectionTimeout": 30,
+      "connectionType": "host",
+      "group": "SQL Server"
+    }
+  ],
+  "dbcode.history.enabled": true,
+  "dbcode.tunnels": [],
+  "workbench.activityBar.location": "top",
+  "terminal.integrated.env.windows": {
+  },
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.cursorWidth": 4,
+  "workbench.panel.showLabels": false,
+  "terminal.integrated.fontFamily": "monospace",
+  "git.autofetch": true
+}
