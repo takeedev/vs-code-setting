@@ -350,13 +350,5 @@
   "workbench.panel.showLabels": false,
   "terminal.integrated.fontFamily": "monospace",
   "git.autofetch": true,
-  "workbench.iconTheme": "material-icon-theme",
-  "java.completion.importOrder": [
-    "#",
-    "java",
-    "javax",
-    "org",
-    "com",
-    ""
-  ]
+  "workbench.iconTheme": "material-icon-theme"
 }
