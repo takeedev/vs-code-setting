@@ -21,6 +21,12 @@ code --force --install-extension ms-vscode-remote.remote-ssh
 #yaml
 code --force --install-extension redhat.vscode-yaml
 
+#create doc
+code --force --install-extension mintlify.document
+
+#scansonar
+code --force --install-extension sonarsource.sonarlint-vscode
+
 #vim
 #code --force --install-extension vscodevim.vim
 
