@@ -27,6 +27,9 @@ code --force --install-extension mintlify.document
 #scansonar
 code --force --install-extension sonarsource.sonarlint-vscode
 
+#format xml
+code --force --install-extensionredhat.vscode-xml
+
 #vim
 #code --force --install-extension vscodevim.vim
 
