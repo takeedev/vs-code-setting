@@ -33,6 +33,9 @@ code --force --install-extension redhat.vscode-xml
 #format yaml
 code --force --install-extension redhat.vscode-yaml
 
+#Docker
+code --force --install-extension ms-azuretools.vscode-docker
+
 #vim
 #code --force --install-extension vscodevim.vim
 
