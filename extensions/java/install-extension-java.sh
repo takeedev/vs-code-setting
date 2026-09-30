@@ -1,11 +1,16 @@
 #!/usr/bin/env sh
 
-#echo 
-echo "start install extention java"
+set -eu
 
-code --force --install-extension vscjava.vscode-java-pack
+command -v code >/dev/null 2>&1 || {
+  printf '%s\n' 'Error: VS Code CLI (code) was not found in PATH.' >&2
+  exit 1
+}
 
-code --force --install-extension vmware.vscode-spring-boot
+printf '%s\n' 'Installing Java extensions'
 
-#echo 
-echo "start install extention java"
+for extension in \
+  vscjava.vscode-java-pack \
+  vmware.vscode-spring-boot; do
+  code --force --install-extension "$extension"
+done

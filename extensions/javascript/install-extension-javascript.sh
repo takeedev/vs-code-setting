@@ -1,24 +1,20 @@
 #!/usr/bin/env sh
-#echo 
-echo "start install extention javascript"
 
-#angular
-code --force --install-extension Angular.ng-template
+set -eu
 
-#vist test
-code --force --install-extension vitest.explorer
+command -v code >/dev/null 2>&1 || {
+  printf '%s\n' 'Error: VS Code CLI (code) was not found in PATH.' >&2
+  exit 1
+}
 
-#javascript typescript
-code --force --install-extension ms-vscode.vscode-typescript-next
+printf '%s\n' 'Installing JavaScript and TypeScript extensions'
 
-#javascript ES6
-code --force --install-extension xabikos.javascriptsnip
-
-#css
-code --force --intsall-extension bradlc.vscode-tailwindcss
-
-#css
-code --force --install-extension ecmel.vscode-html-css
-
-#echo 
-echo "start install extention javascript"
+for extension in \
+  Angular.ng-template \
+  vitest.explorer \
+  ms-vscode.vscode-typescript-next \
+  MarcoGoedert.JavaScriptSnippetsUpdated \
+  bradlc.vscode-tailwindcss \
+  ecmel.vscode-html-css; do
+  code --force --install-extension "$extension"
+done

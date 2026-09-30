@@ -1,49 +1,27 @@
 #!/usr/bin/env sh
 
-#echo 
-echo "start install extention"
+set -eu
 
-#gitlens
-#code --force --install-extension eamodio.gitlens
+command -v code >/dev/null 2>&1 || {
+  printf '%s\n' 'Error: VS Code CLI (code) was not found in PATH.' >&2
+  exit 1
+}
 
-#vscode-eslint
-code --force --install-extension dbaeumer.vscode-eslint
+printf '%s\n' 'Installing shared VS Code extensions'
 
-#icon-theme
-code --force --install-extension PKief.material-icon-theme
+for extension in \
+  dbaeumer.vscode-eslint \
+  PKief.material-icon-theme \
+  ms-vscode.remote-explorer \
+  ms-vscode-remote.remote-ssh \
+  redhat.vscode-yaml \
+  mintlify.document \
+  sonarsource.sonarlint-vscode \
+  redhat.vscode-xml \
+  ms-azuretools.vscode-containers \
+  vscodevim.vim; do
+  code --force --install-extension "$extension"
+done
 
-#remote explorer
-code --force --install-extension ms-vscode.remote-explorer
-
-#remote ssh
-code --force --install-extension ms-vscode-remote.remote-ssh
-
-#yaml
-code --force --install-extension redhat.vscode-yaml
-
-#create doc
-code --force --install-extension mintlify.document
-
-#scansonar
-code --force --install-extension sonarsource.sonarlint-vscode
-
-#format xml
-code --force --install-extension redhat.vscode-xml
-
-#format yaml
-code --force --install-extension redhat.vscode-yaml
-
-#Docker
-code --force --install-extension ms-azuretools.vscode-docker
-
-#vim
-#code --force --install-extension vscodevim.vim
-
-#mermadAid
-#code --force --install-extension ms-vscode.copilot-mermaid-diagram
-
-#echo 
-echo "++++++++++++++++++++++++++++++++++++++++"
-
-#check extension
+printf '%s\n' 'Installed extensions:'
 code --list-extensions
