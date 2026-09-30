@@ -1,5 +1,15 @@
 [
   {
+    "command": "list.select",
+    "key": "enter",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "command": "renameFile",
+    "key": "f2",
+    "when": "filesExplorerFocus && !inputFocus && !explorerResourceIsRoot && !explorerResourceReadonly"
+  },
+  {
     "command": "workbench.action.focusActiveEditorGroup",
     "key": "escape",
     "when": "!editorTextFocus"

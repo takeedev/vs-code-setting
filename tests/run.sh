@@ -95,12 +95,14 @@ for path in sys.argv[1:]:
         json.load(source, object_pairs_hook=reject_duplicates)
 PY
 
-  python3 - "$repo_root/config/settings.json" <<'PY'
+  python3 - "$repo_root/config/settings.json" "$repo_root/config/keybindings.json" <<'PY'
 import json
 import sys
 
 with open(sys.argv[1], encoding="utf-8") as source:
     settings = json.load(source)
+with open(sys.argv[2], encoding="utf-8") as source:
+    keybindings = json.load(source)
 
 assert settings["vim.leader"] == "<space>"
 assert settings["whichkey.delay"] == 0
@@ -129,6 +131,17 @@ assert open_bindings["p"]["commands"] == [
     "workbench.view.explorer",
     "workbench.files.action.focusFilesExplorer",
 ]
+assert {
+    (binding.get("key"), binding.get("command"), binding.get("when"))
+    for binding in keybindings
+} >= {
+    ("enter", "list.select", "filesExplorerFocus && !inputFocus"),
+    (
+        "f2",
+        "renameFile",
+        "filesExplorerFocus && !inputFocus && !explorerResourceIsRoot && !explorerResourceReadonly",
+    ),
+}
 PY
 }
 
