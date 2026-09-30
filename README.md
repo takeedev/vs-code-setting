@@ -5,6 +5,11 @@ installers. Setup supports macOS, Linux, and Windows environments such as Git Ba
 In VSCodeVim Normal or Visual mode, press `Space` to open a Which Key menu showing
 the available leader-key commands and their descriptions.
 
+Useful leader groups include `Space a` for tool views, `Space o` for opening files,
+Explorer, recent workspaces, imports, and terminals, and `Space r` for run/refactor.
+Use `Space o P` to open a project/folder and `Space n p` to start a new project
+window.
+
 ## Setup
 
 The installer validates both JSON files, backs up the current configuration, then

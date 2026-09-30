@@ -268,6 +268,71 @@
       ]
     },
     {
+      "key": "n",
+      "name": "New...",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "p",
+          "name": "New project window",
+          "type": "command",
+          "command": "workbench.action.newWindow"
+        }
+      ]
+    },
+    {
+      "key": "o",
+      "name": "Open...",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "e",
+          "name": "Reveal active file in Explorer",
+          "type": "command",
+          "command": "workbench.files.action.showActiveFileInExplorer"
+        },
+        {
+          "key": "f",
+          "name": "Open file",
+          "type": "command",
+          "command": "workbench.action.quickOpen"
+        },
+        {
+          "key": "i",
+          "name": "Organize imports",
+          "type": "command",
+          "command": "editor.action.organizeImports"
+        },
+        {
+          "key": "p",
+          "name": "Open Explorer",
+          "type": "commands",
+          "commands": [
+            "workbench.view.explorer",
+            "workbench.files.action.focusFilesExplorer"
+          ]
+        },
+        {
+          "key": "P",
+          "name": "Open project / folder",
+          "type": "command",
+          "command": "workbench.action.files.openFolder"
+        },
+        {
+          "key": "r",
+          "name": "Open recent",
+          "type": "command",
+          "command": "workbench.action.openRecent"
+        },
+        {
+          "key": "t",
+          "name": "Open new terminal",
+          "type": "command",
+          "command": "workbench.action.terminal.new"
+        }
+      ]
+    },
+    {
       "key": "r",
       "name": "Run / Refactor...",
       "type": "bindings",

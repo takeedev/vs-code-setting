@@ -106,7 +106,29 @@ assert settings["vim.leader"] == "<space>"
 assert settings["whichkey.delay"] == 0
 assert any(binding.get("commands") == ["whichkey.show"] for binding in settings["vim.normalModeKeyBindingsNonRecursive"])
 assert any(binding.get("commands") == ["whichkey.show"] for binding in settings["vim.visualModeKeyBindingsNonRecursive"])
-assert {binding["key"] for binding in settings["whichkey.bindings"]} >= {" ", "?", "a", "h", "r"}
+bindings = {binding["key"]: binding for binding in settings["whichkey.bindings"]}
+assert bindings.keys() >= {" ", "?", "a", "h", "n", "o", "r"}
+assert bindings["n"]["bindings"] == [
+    {
+        "key": "p",
+        "name": "New project window",
+        "type": "command",
+        "command": "workbench.action.newWindow",
+    }
+]
+open_bindings = {binding["key"]: binding for binding in bindings["o"]["bindings"]}
+assert {key: binding["command"] for key, binding in open_bindings.items() if key != "p"} == {
+    "e": "workbench.files.action.showActiveFileInExplorer",
+    "f": "workbench.action.quickOpen",
+    "i": "editor.action.organizeImports",
+    "P": "workbench.action.files.openFolder",
+    "r": "workbench.action.openRecent",
+    "t": "workbench.action.terminal.new",
+}
+assert open_bindings["p"]["commands"] == [
+    "workbench.view.explorer",
+    "workbench.files.action.focusFilesExplorer",
+]
 PY
 }
 
