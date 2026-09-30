@@ -260,6 +260,19 @@
       ]
     },
     {
+      "key": "c",
+      "name": "Close...",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "O",
+          "name": "Close other tabs",
+          "type": "command",
+          "command": "workbench.action.closeOtherEditors"
+        }
+      ]
+    },
+    {
       "key": "h",
       "name": "Hide sidebar and panel",
       "type": "commands",
@@ -345,6 +358,12 @@
           "command": "takeedev.explorerVimMenu.show"
         }
       ]
+    },
+    {
+      "key": "q",
+      "name": "Close current tab",
+      "type": "command",
+      "command": "workbench.action.closeActiveEditor"
     },
     {
       "key": "r",

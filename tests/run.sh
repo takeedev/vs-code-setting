@@ -113,7 +113,16 @@ assert settings["whichkey.delay"] == 0
 assert any(binding.get("commands") == ["whichkey.show"] for binding in settings["vim.normalModeKeyBindingsNonRecursive"])
 assert any(binding.get("commands") == ["whichkey.show"] for binding in settings["vim.visualModeKeyBindingsNonRecursive"])
 bindings = {binding["key"]: binding for binding in settings["whichkey.bindings"]}
-assert bindings.keys() >= {" ", "?", "a", "h", "n", "o", "r"}
+assert bindings.keys() >= {" ", "?", "a", "c", "h", "n", "o", "p", "q", "r", "s"}
+assert bindings["c"]["bindings"] == [
+    {
+        "key": "O",
+        "name": "Close other tabs",
+        "type": "command",
+        "command": "workbench.action.closeOtherEditors",
+    }
+]
+assert bindings["q"]["command"] == "workbench.action.closeActiveEditor"
 assert bindings["n"]["bindings"] == [
     {
         "key": "p",
