@@ -229,6 +229,12 @@
         },
         {
           "key": "g",
+          "name": "Source Control",
+          "type": "command",
+          "command": "workbench.view.scm"
+        },
+        {
+          "key": "G",
           "name": "Gradle",
           "type": "command",
           "command": "gradleDefaultProjectsView.focus"
@@ -269,6 +275,25 @@
           "name": "Close other tabs",
           "type": "command",
           "command": "workbench.action.closeOtherEditors"
+        }
+      ]
+    },
+    {
+      "key": "g",
+      "name": "Git...",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "f",
+          "name": "Fetch",
+          "type": "command",
+          "command": "git.fetch"
+        },
+        {
+          "key": "p",
+          "name": "Pull",
+          "type": "command",
+          "command": "git.pull"
         }
       ]
     },

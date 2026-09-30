@@ -113,7 +113,10 @@ assert settings["whichkey.delay"] == 0
 assert any(binding.get("commands") == ["whichkey.show"] for binding in settings["vim.normalModeKeyBindingsNonRecursive"])
 assert any(binding.get("commands") == ["whichkey.show"] for binding in settings["vim.visualModeKeyBindingsNonRecursive"])
 bindings = {binding["key"]: binding for binding in settings["whichkey.bindings"]}
-assert bindings.keys() >= {" ", "?", "a", "c", "h", "n", "o", "p", "q", "r", "s"}
+assert bindings.keys() >= {" ", "?", "a", "c", "g", "h", "n", "o", "p", "q", "r", "s"}
+activate_bindings = {binding["key"]: binding for binding in bindings["a"]["bindings"]}
+assert activate_bindings["g"]["command"] == "workbench.view.scm"
+assert activate_bindings["G"]["command"] == "gradleDefaultProjectsView.focus"
 assert bindings["c"]["bindings"] == [
     {
         "key": "O",
@@ -122,6 +125,9 @@ assert bindings["c"]["bindings"] == [
         "command": "workbench.action.closeOtherEditors",
     }
 ]
+git_bindings = {binding["key"]: binding for binding in bindings["g"]["bindings"]}
+assert git_bindings["f"]["command"] == "git.fetch"
+assert git_bindings["p"]["command"] == "git.pull"
 assert bindings["q"]["command"] == "workbench.action.closeActiveEditor"
 assert bindings["n"]["bindings"] == [
     {
