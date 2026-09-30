@@ -185,6 +185,7 @@
     }
   ],
   "vim.leader": "<space>",
+  "keyboard.dispatch": "keyCode",
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-b>": false,
@@ -333,6 +334,19 @@
       ]
     },
     {
+      "key": "p",
+      "name": "Popup...",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "m",
+          "name": "Explorer action menu",
+          "type": "command",
+          "command": "takeedev.explorerVimMenu.show"
+        }
+      ]
+    },
+    {
       "key": "r",
       "name": "Run / Refactor...",
       "type": "bindings",
@@ -348,6 +362,25 @@
           "name": "Run Java file",
           "type": "command",
           "command": "java.debug.runJavaFile"
+        }
+      ]
+    },
+    {
+      "key": "s",
+      "name": "Show...",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "m",
+          "name": "Explorer action menu",
+          "type": "command",
+          "command": "takeedev.explorerVimMenu.show"
+        },
+        {
+          "key": "P",
+          "name": "Explorer action menu",
+          "type": "command",
+          "command": "takeedev.explorerVimMenu.show"
         }
       ]
     }

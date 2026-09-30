@@ -60,6 +60,9 @@ done
 relative_path=${url#*/config/}
 case "$url" in
   */config/*) relative_path="config/$relative_path" ;;
+  */extensions/explorer-vim-menu/install-extension.sh) relative_path=extensions/explorer-vim-menu/install-extension.sh ;;
+  */extensions/explorer-vim-menu/package.json) relative_path=extensions/explorer-vim-menu/package.json ;;
+  */extensions/explorer-vim-menu/extension.js) relative_path=extensions/explorer-vim-menu/extension.js ;;
   */install-extensions.sh) relative_path=install-extensions.sh ;;
   *) exit 22 ;;
 esac
@@ -78,7 +81,7 @@ EOF
 }
 
 test_json_files() {
-  python3 - "$repo_root/config/settings.json" "$repo_root/config/keybindings.json" <<'PY'
+  python3 - "$repo_root/config/settings.json" "$repo_root/config/keybindings.json" "$repo_root/extensions/explorer-vim-menu/package.json" <<'PY'
 import json
 import sys
 
@@ -105,6 +108,7 @@ with open(sys.argv[2], encoding="utf-8") as source:
     keybindings = json.load(source)
 
 assert settings["vim.leader"] == "<space>"
+assert settings["keyboard.dispatch"] == "keyCode"
 assert settings["whichkey.delay"] == 0
 assert any(binding.get("commands") == ["whichkey.show"] for binding in settings["vim.normalModeKeyBindingsNonRecursive"])
 assert any(binding.get("commands") == ["whichkey.show"] for binding in settings["vim.visualModeKeyBindingsNonRecursive"])
@@ -131,6 +135,17 @@ assert open_bindings["p"]["commands"] == [
     "workbench.view.explorer",
     "workbench.files.action.focusFilesExplorer",
 ]
+assert bindings["p"]["bindings"] == [
+    {
+        "key": "m",
+        "name": "Explorer action menu",
+        "type": "command",
+        "command": "takeedev.explorerVimMenu.show",
+    }
+]
+show_bindings = {binding["key"]: binding for binding in bindings["s"]["bindings"]}
+assert show_bindings["m"]["command"] == "takeedev.explorerVimMenu.show"
+assert show_bindings["P"]["command"] == "takeedev.explorerVimMenu.show"
 assert {
     (binding.get("key"), binding.get("command"), binding.get("when"))
     for binding in keybindings
@@ -141,8 +156,13 @@ assert {
         "renameFile",
         "filesExplorerFocus && !inputFocus && !explorerResourceIsRoot && !explorerResourceReadonly",
     ),
+    ("ctrl+shift+p", "editor.action.showContextMenu", "editorTextFocus"),
+    ("shift+f10", "workbench.action.tasks.reRunTask", "editorTextFocus"),
 }
 PY
+
+  node --check "$repo_root/extensions/explorer-vim-menu/extension.js"
+  node "$repo_root/extensions/explorer-vim-menu/extension.test.js"
 }
 
 test_install_and_restore() {
@@ -217,7 +237,13 @@ test_extension_installers() {
     "$repo_root/install-extensions.sh" \
     "$repo_root/extensions/java/install-extension-java.sh" \
     "$repo_root/extensions/javascript/install-extension-javascript.sh"; do
-    PATH="$stub_dir:$PATH" CODE_CALL_LOG="$call_log" sh "$installer" >/dev/null
+    PATH="$stub_dir:$PATH" \
+      CODE_CALL_LOG="$call_log" \
+      CURL_FIXTURE_ROOT="$repo_root" \
+      HOME="$case_root/home" \
+      VSCODE_EXTENSIONS_DIR="$case_root/extensions-dir" \
+      RAW_VSCODE_SETTINGS_URL=https://fixtures.invalid \
+      sh "$installer" >/dev/null
   done
 
   [ "$(grep -c '^--force --install-extension ' "$call_log")" -eq 20 ]
@@ -230,6 +256,8 @@ test_extension_installers() {
   ! grep -q 'ms-azuretools.vscode-docker' "$call_log"
   ! grep -q 'xabikos.javascriptsnip' "$call_log"
   ! grep -q -- '--intsall-extension' "$call_log"
+  assert_same "$repo_root/extensions/explorer-vim-menu/package.json" "$case_root/extensions-dir/takeedev.explorer-vim-menu-0.1.0/package.json"
+  assert_same "$repo_root/extensions/explorer-vim-menu/extension.js" "$case_root/extensions-dir/takeedev.explorer-vim-menu-0.1.0/extension.js"
 }
 
 test_save() {

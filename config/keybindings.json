@@ -578,7 +578,13 @@
   },
   {
     "command": "workbench.action.tasks.reRunTask",
-    "key": "shift+f10"
+    "key": "shift+f10",
+    "when": "editorTextFocus"
+  },
+  {
+    "command": "editor.action.showContextMenu",
+    "key": "ctrl+shift+p",
+    "when": "editorTextFocus"
   },
   {
     "command": "editor.debug.action.runToCursor",

@@ -1,0 +1,43 @@
+{
+  "name": "explorer-vim-menu",
+  "displayName": "Explorer Vim Menu",
+  "description": "Keyboard-driven Explorer actions with j/k navigation.",
+  "version": "0.1.0",
+  "publisher": "takeedev",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:takeedev.explorerVimMenu.show"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "takeedev.explorerVimMenu.show",
+        "title": "Explorer: Show Vim Action Menu"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "takeedev.explorerVimMenu.show",
+        "key": "ctrl+shift+p",
+        "mac": "ctrl+shift+p",
+        "when": "filesExplorerFocus && !inputFocus"
+      },
+      {
+        "command": "workbench.action.quickOpenSelectNext",
+        "key": "j",
+        "when": "takeedev.explorerVimMenuVisible"
+      },
+      {
+        "command": "workbench.action.quickOpenSelectPrevious",
+        "key": "k",
+        "when": "takeedev.explorerVimMenuVisible"
+      }
+    ]
+  }
+}
