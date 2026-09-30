@@ -185,11 +185,12 @@ test_extension_installers() {
     PATH="$stub_dir:$PATH" CODE_CALL_LOG="$call_log" sh "$installer" >/dev/null
   done
 
-  [ "$(grep -c '^--force --install-extension ' "$call_log")" -eq 19 ]
+  [ "$(grep -c '^--force --install-extension ' "$call_log")" -eq 20 ]
   [ "$(grep -c 'bradlc.vscode-tailwindcss' "$call_log")" -eq 1 ]
   [ "$(grep -c 'vscodevim.vim' "$call_log")" -eq 1 ]
   [ "$(grep -c 'ms-azuretools.vscode-containers' "$call_log")" -eq 1 ]
   [ "$(grep -c 'MarcoGoedert.JavaScriptSnippetsUpdated' "$call_log")" -eq 1 ]
+  [ "$(grep -c 'dsznajder.es7-react-js-snippets' "$call_log")" -eq 1 ]
   [ "$(grep -c 'VSpaceCode.whichkey' "$call_log")" -eq 1 ]
   ! grep -q 'ms-azuretools.vscode-docker' "$call_log"
   ! grep -q 'xabikos.javascriptsnip' "$call_log"

@@ -14,6 +14,7 @@ for extension in \
   vitest.explorer \
   ms-vscode.vscode-typescript-next \
   MarcoGoedert.JavaScriptSnippetsUpdated \
+  dsznajder.es7-react-js-snippets \
   bradlc.vscode-tailwindcss \
   ecmel.vscode-html-css; do
   code --force --install-extension "$extension"
