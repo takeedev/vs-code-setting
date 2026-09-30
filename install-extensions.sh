@@ -19,6 +19,7 @@ for extension in \
   sonarsource.sonarlint-vscode \
   redhat.vscode-xml \
   ms-azuretools.vscode-containers \
+  VSpaceCode.whichkey \
   vscodevim.vim; do
   code --force --install-extension "$extension"
 done

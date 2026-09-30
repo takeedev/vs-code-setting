@@ -149,132 +149,10 @@
     },
     {
       "before": [
-        "<leader>",
-        "a",
-        "c"
-      ],
-      "commands": [
-        "workbench.view.scm"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "a",
-        "d"
-      ],
-      "commands": [
-        "workbench.view.debug"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "a",
-        "c"
-      ],
-      "commands": [
-        "workbench.view.scm"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "a",
-        "d"
-      ],
-      "commands": [
-        "workbench.view.debug"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "a",
-        "g"
-      ],
-      "commands": [
-        "gradleDefaultProjectsView.focus"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "a",
-        "m"
-      ],
-      "commands": [
-        "mavenProjects.focus"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "a",
-        "p"
-      ],
-      "commands": [
-        "workbench.view.explorer"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "a",
-        "s"
-      ],
-      "commands": [
-        "outline.focus"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "a",
-        "t"
-      ],
-      "commands": [
-        "workbench.action.terminal.toggleTerminal"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "h"
-      ],
-      "commands": [
-        "workbench.action.closeSidebar",
-        "workbench.action.closePanel"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "r",
-        "e"
-      ],
-      "commands": [
-        "editor.action.refactor"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "r",
-        "r"
-      ],
-      "commands": [
-        "java.debug.runJavaFile"
-      ],
-      "when": "resourceExtname == .java"
-    },
-    {
-      "before": [
-        "<leader>",
         "<leader>"
       ],
-      "after": [
-        "<c-^>"
+      "commands": [
+        "whichkey.show"
       ]
     },
     {
@@ -296,6 +174,16 @@
       ]
     }
   ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<leader>"
+      ],
+      "commands": [
+        "whichkey.show"
+      ]
+    }
+  ],
   "vim.leader": "<space>",
   "vim.handleKeys": {
     "<C-a>": false,
@@ -306,6 +194,99 @@
     "<C-v>": false,
     "<C-x>": false
   },
+  "whichkey.delay": 0,
+  "whichkey.sortOrder": "custom",
+  "whichkey.bindings": [
+    {
+      "key": " ",
+      "name": "Previous editor",
+      "type": "command",
+      "command": "workbench.action.openPreviousRecentlyUsedEditorInGroup"
+    },
+    {
+      "key": "?",
+      "name": "Search keybindings",
+      "type": "command",
+      "command": "whichkey.searchBindings"
+    },
+    {
+      "key": "a",
+      "name": "Activate...",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "c",
+          "name": "Source Control",
+          "type": "command",
+          "command": "workbench.view.scm"
+        },
+        {
+          "key": "d",
+          "name": "Debug",
+          "type": "command",
+          "command": "workbench.view.debug"
+        },
+        {
+          "key": "g",
+          "name": "Gradle",
+          "type": "command",
+          "command": "gradleDefaultProjectsView.focus"
+        },
+        {
+          "key": "m",
+          "name": "Maven",
+          "type": "command",
+          "command": "mavenProjects.focus"
+        },
+        {
+          "key": "p",
+          "name": "Explorer",
+          "type": "command",
+          "command": "workbench.view.explorer"
+        },
+        {
+          "key": "s",
+          "name": "Outline",
+          "type": "command",
+          "command": "outline.focus"
+        },
+        {
+          "key": "t",
+          "name": "Terminal",
+          "type": "command",
+          "command": "workbench.action.terminal.toggleTerminal"
+        }
+      ]
+    },
+    {
+      "key": "h",
+      "name": "Hide sidebar and panel",
+      "type": "commands",
+      "commands": [
+        "workbench.action.closeSidebar",
+        "workbench.action.closePanel"
+      ]
+    },
+    {
+      "key": "r",
+      "name": "Run / Refactor...",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "e",
+          "name": "Refactor",
+          "type": "command",
+          "command": "editor.action.refactor"
+        },
+        {
+          "key": "r",
+          "name": "Run Java file",
+          "type": "command",
+          "command": "java.debug.runJavaFile"
+        }
+      ]
+    }
+  ],
   "extensions.experimental.affinity": {
     "vscodevim.vim": 1
   },

@@ -2,6 +2,8 @@
 
 Personal VS Code settings, IntelliJ-style keybindings, Vim mappings, and extension
 installers. Setup supports macOS, Linux, and Windows environments such as Git Bash.
+In VSCodeVim Normal or Visual mode, press `Space` to open a Which Key menu showing
+the available leader-key commands and their descriptions.
 
 ## Setup
 
